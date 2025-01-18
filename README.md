@@ -6,11 +6,12 @@ Tested with a RPi 3B and Zero 2W, but should work with any model. MIDI Bluetooth
 
 ## Usage
 
-1. Download latest [Raspberry Pi OS lite image](https://downloads.raspberrypi.org/raspios_lite_armhf/images/) and install it on your SD card with [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-1. Create a new file named `ssh` in `/boot` folder of the SD card to enable SSH access.
+1. Use the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and choose the Raspbery Pi OS (Legacy 32 bit) Lite (Bullseye) 
+1. Edit custom settings in the Imager as part of the install to the card, set username and password. Edit Settings to enter WLAN credentials, change to middle tab and enable SSH with normal password authentication.
 1. SSH to your RPi with `ssh pi@<IP_ADDRESS>` (default password is `raspberry`)
 1. Run this command: `bash <(curl -Ls https://raw.githubusercontent.com/sinedied/pi-midi-host/main/setup.sh)`
-1. Reboot
+1. Partway through the script execution, there is a prompt:  `Update apt? (Must be done on a fresh system) [y/N] `  Enter N or enter to bypass this step.
+
 
 > Note: the filesystem is switched to read-only at the end of the setup, to avoid SD card corruption when powering off. To switch it back on and off, use the `rw` and `ro` commands.
 
