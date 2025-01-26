@@ -9,8 +9,8 @@
 $noMidiOutDevices = []
 $noMidiInDevices = []
 
-# a list of pairs for example: [ [ /EaganMatrix/ , /EPro-CV/ ] ] 
-$noConnectPairs = [  ]
+# a list of pairs for example: [ [ /EaganMatrix/ , /EPro/ ] ]
+$noConnectPairs = [ [ /EaganMatrix/ , /WARBL/ ], [ /EaganMatrix/ , /EPro/ ]  ]
 
 def matchList(list, s)
   list.each do |pattern|
@@ -27,7 +27,8 @@ def matchListPairs(list, s, d)
     src = pair.first
     dest = pair.last
     smatch = src.match(s)
-    dmatch = src.match(d)    
+    dmatch = dest.match(d)
+    # print "src: '", s, "' dest: '", d, "'    smatch: " ,smatch, "  dmatch: ", dmatch , "\n"
     if !smatch.nil? && !dmatch.nil? 
       return true
     end
