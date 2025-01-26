@@ -9,10 +9,26 @@
 $noMidiOutDevices = []
 $noMidiInDevices = []
 
+# a list of pairs for example: [ [ /EaganMatrix/ , /EPro-CV/ ] ] 
+$noConnectPairs = [  ]
+
 def matchList(list, s)
   list.each do |pattern|
     match = pattern.match(s)
     unless match.nil?
+      return true
+    end
+  end
+  return false
+end
+
+def matchListPairs(list, s, d)
+  list.each do |pair|
+    src = pair.first
+    dest = pair.last
+    smatch = src.match(s)
+    dmatch = src.match(d)    
+    if !smatch.nil? && !dmatch.nil? 
       return true
     end
   end
@@ -49,7 +65,8 @@ $devices.each do |device1, ports1|
         isSame = (device1 == device2 && port1 == port2)
         noOut = matchList($noMidiOutDevices, $names[device1])
         noIn = matchList($noMidiInDevices, $names[device2])
-        unless isSame || noOut || noIn
+        noPair = matchListPairs($noConnectPairs, $names[device1], $names[device2])         
+        unless isSame || noOut || noIn || noPair
           system "aconnect #{device1}:#{port1} #{device2}:#{port2}"
         end
       end
