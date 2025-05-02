@@ -14,7 +14,7 @@ sudo apt-get upgrade -y
 sudo apt-get install git ruby -y
 
 # Clone this repo
-git clone https://github.com/sinedied/pi-midi-host
+git clone https://github.com/essej/pi-midi-host
 cd pi-midi-host
 
 # Optimize for power efficiency and fast boot

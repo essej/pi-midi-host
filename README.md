@@ -9,7 +9,7 @@ Tested with a RPi 3B and Zero 2W, but should work with any model. MIDI Bluetooth
 1. Use the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and choose the Raspbery Pi OS (Legacy 32 bit) Lite (Bullseye) 
 1. Edit custom settings in the Imager as part of the install to the card, set username and password. Edit Settings to enter WLAN credentials, change to middle tab and enable SSH with normal password authentication.
 1. SSH to your RPi with `ssh pi@<IP_ADDRESS>` (default password is `raspberry`)
-1. Run this command: `bash <(curl -Ls https://raw.githubusercontent.com/sinedied/pi-midi-host/main/setup.sh)`
+1. Run this command: `bash <(curl -Ls https://raw.githubusercontent.com/essej/pi-midi-host/osfix/setup.sh)`
 1. Partway through the script execution, there is a prompt:  `Update apt? (Must be done on a fresh system) [y/N] `  Enter N or enter to bypass this step.
 
 
